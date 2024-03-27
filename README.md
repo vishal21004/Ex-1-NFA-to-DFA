@@ -109,8 +109,7 @@ void Display_closure(int states, int closure_ar[],
  // till closure get completely saturated
  while (z != 100)
  {
- 	
- if (strcmp(&NFA_TABLE[z][symbols], "-") != 0) {
+if (strcmp(&NFA_TABLE[z][symbols], "-") != 0) {
  strcpy(buffer, &NFA_TABLE[z][symbols]);
  // call the check function
  check(closure_ar, buffer);
@@ -146,7 +145,8 @@ int new_states(struct DFA *dfa, char S[]) {
 }
 // Transition function from NFA to DFA
 // (generally union of closure operation )
-void trans(char S[], int M, char *clsr_t[], int st,char *NFT[][symbols + 1], char TB[]) {
+void trans(char S[], int M, char *clsr_t[], int st,
+char *NFT[][symbols + 1], char TB[]) {
  int len = strlen(S);
  int i, j, k, g;
  int arr[st];
@@ -180,12 +180,12 @@ void trans(char S[], int M, char *clsr_t[], int st,char *NFT[][symbols + 1], cha
 void Display_DFA(int last_index, struct DFA *dfa_states,
  char *DFA_TABLE[][symbols]) {
  int i, j;
- printf("\n\n**\n\n");
+ printf("\n\n********************************************************\n\n");
  printf("\t\t DFA TRANSITION STATE TABLE \t\t \n\n");
  printf("\n STATES OF DFA :\t\t");
  for (i = 1; i < last_index; i++)
  printf("%s, ", &dfa_states[i].states);
-  printf("\n");
+printf("\n");
  printf("\n GIVEN SYMBOLS FOR DFA: \t");
  for (i = 0; i < symbols; i++)
  printf("%d, ", i);
@@ -286,6 +286,7 @@ char *NFA_TABLE[states][symbols + 1];
  Display_DFA(last_index, dfa_states, DFA_TABLE);
  return 0;
 }
+
 # OUTPUT 
 ![ex 1 21](https://github.com/vishal21004/Ex-1-NFA-to-DFA/assets/119560110/6c529ec7-e876-4a10-abac-b5c7e8a95088)
 
